@@ -1,0 +1,16 @@
+PODS:
+  - SZDebugBall (0.1.0)
+
+DEPENDENCIES:
+  - SZDebugBall (from `../`)
+
+EXTERNAL SOURCES:
+  SZDebugBall:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SZDebugBall: 3ea2526aeb3bf808bc69430f27074e98d969b61a
+
+PODFILE CHECKSUM: fc82d03c5781ec1f719526dcf243c92566c8486c
+
+COCOAPODS: 1.5.3
