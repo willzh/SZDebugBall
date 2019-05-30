@@ -6,8 +6,16 @@
 [![Platform](https://img.shields.io/cocoapods/p/SZDebugBall.svg?style=flat)](https://cocoapods.org/pods/SZDebugBall)
 
 ## Example
+``` 
+#import <SZDebugBall/SZEnvironmentManager.h>
+```
+``` 
+[SZEnvironmentManager configEnvs:@[@"开发", @"测试", @"生产"] address:@[@"http://www.api.com/develop", @"http://www.api.com/test", @"http://www.api.com/product"]];
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+[SZEnvironmentManager configCurrentAddress:@"http://www.api.com/develop"];
+
+NSLog(@"BASE_URL:%@", [SZEnvironmentManager currentAddress]);
+```
 
 ## Requirements
 
@@ -22,7 +30,7 @@ pod 'SZDebugBall'
 
 ## Author
 
-willzh, aoxuemobile@gmail.com
+willzh
 
 ## License
 
