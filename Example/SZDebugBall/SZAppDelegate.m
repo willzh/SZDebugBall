@@ -7,6 +7,7 @@
 //
 
 #import "SZAppDelegate.h"
+#import <SZDebugBall/SZEnvironmentManager.h>
 
 @implementation SZAppDelegate
 

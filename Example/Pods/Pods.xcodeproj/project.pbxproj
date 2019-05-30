@@ -12,7 +12,21 @@
 		5D59BA4980F26C404B93C1D73C677074 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */; };
 		6A47E1C2A610E38E8C5D41EE42F45314 /* Pods-SZDebugBall_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1182305A14E5594A05FDE5062D789A6E /* Pods-SZDebugBall_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6B1CB5F8F8C24D109525452396BEDA9C /* Pods-SZDebugBall_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0278139AEBA0B339A88265AA1910EB78 /* Pods-SZDebugBall_Tests-dummy.m */; };
-		76271BFC41406FDCEA008363E9FB819D /* ReplaceMe.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E5934EC987C4AB61B57518558C6510 /* ReplaceMe.m */; };
+		BE7FFA1D229E9DC100B37848 /* SZDebugVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7FFA0F229E9DC000B37848 /* SZDebugVC.m */; };
+		BE7FFA1E229E9DC100B37848 /* SZDebugBall.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7FFA10229E9DC000B37848 /* SZDebugBall.m */; };
+		BE7FFA1F229E9DC100B37848 /* UIDevice+Debugging.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7FFA11229E9DC000B37848 /* UIDevice+Debugging.m */; };
+		BE7FFA20229E9DC100B37848 /* SZEnvironmentVC.h in Headers */ = {isa = PBXBuildFile; fileRef = BE7FFA12229E9DC000B37848 /* SZEnvironmentVC.h */; };
+		BE7FFA21229E9DC100B37848 /* UITextView+Placeholder.h in Headers */ = {isa = PBXBuildFile; fileRef = BE7FFA13229E9DC000B37848 /* UITextView+Placeholder.h */; };
+		BE7FFA22229E9DC100B37848 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7FFA14229E9DC000B37848 /* UITextView+Placeholder.m */; };
+		BE7FFA23229E9DC100B37848 /* SZEnvironmentManager.h in Headers */ = {isa = PBXBuildFile; fileRef = BE7FFA15229E9DC100B37848 /* SZEnvironmentManager.h */; };
+		BE7FFA24229E9DC100B37848 /* SZEnvironmentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7FFA16229E9DC100B37848 /* SZEnvironmentVC.m */; };
+		BE7FFA25229E9DC100B37848 /* SZEnvironmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7FFA17229E9DC100B37848 /* SZEnvironmentManager.m */; };
+		BE7FFA26229E9DC100B37848 /* SZDebugBall.h in Headers */ = {isa = PBXBuildFile; fileRef = BE7FFA18229E9DC100B37848 /* SZDebugBall.h */; };
+		BE7FFA27229E9DC100B37848 /* UIDevice+Debugging.h in Headers */ = {isa = PBXBuildFile; fileRef = BE7FFA19229E9DC100B37848 /* UIDevice+Debugging.h */; };
+		BE7FFA28229E9DC100B37848 /* SZNewEnvironmentVC.h in Headers */ = {isa = PBXBuildFile; fileRef = BE7FFA1A229E9DC100B37848 /* SZNewEnvironmentVC.h */; };
+		BE7FFA29229E9DC100B37848 /* SZNewEnvironmentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7FFA1B229E9DC100B37848 /* SZNewEnvironmentVC.m */; };
+		BE7FFA2A229E9DC100B37848 /* SZDebugVC.h in Headers */ = {isa = PBXBuildFile; fileRef = BE7FFA1C229E9DC100B37848 /* SZDebugVC.h */; };
+		BE7FFA2B229E9EB400B37848 /* SZEnvironmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7FFA17229E9DC100B37848 /* SZEnvironmentManager.m */; };
 		D3A0FB97BD8829CD8B65944F9870BDD8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */; };
 		DAA9483C1844E7F00E93551BFB914F81 /* SZDebugBall-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 115D1B0F5037E766C6D2C813915DA7EC /* SZDebugBall-dummy.m */; };
 		E32BAB0619EDB894E9C5FB478775343E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */; };
@@ -41,35 +55,48 @@
 		0A46B89453EDB97248C59B11F9646175 /* Pods-SZDebugBall_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SZDebugBall_Example.modulemap"; sourceTree = "<group>"; };
 		115D1B0F5037E766C6D2C813915DA7EC /* SZDebugBall-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SZDebugBall-dummy.m"; sourceTree = "<group>"; };
 		1182305A14E5594A05FDE5062D789A6E /* Pods-SZDebugBall_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SZDebugBall_Tests-umbrella.h"; sourceTree = "<group>"; };
-		1627954C9B62906D60A8CB2878EB4DF0 /* Pods_SZDebugBall_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SZDebugBall_Tests.framework; path = "Pods-SZDebugBall_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1627954C9B62906D60A8CB2878EB4DF0 /* Pods_SZDebugBall_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SZDebugBall_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		17AE0C6348EE75987544B5BE43B2CDE0 /* SZDebugBall-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SZDebugBall-umbrella.h"; sourceTree = "<group>"; };
 		2A4ABAF75ADB3FC7A1C939C9DF41F080 /* SZDebugBall-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SZDebugBall-prefix.pch"; sourceTree = "<group>"; };
 		2D7C184746DC0683710F7AFB06060166 /* Pods-SZDebugBall_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SZDebugBall_Tests.modulemap"; sourceTree = "<group>"; };
 		4EBC07EE2DF5930CC0D10F47EACEED84 /* Pods-SZDebugBall_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SZDebugBall_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		505CD65BCE26412E030B35EBD993CE13 /* Pods-SZDebugBall_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SZDebugBall_Tests-resources.sh"; sourceTree = "<group>"; };
 		650B490E0D9C8A60FD3D2473E9506038 /* Pods-SZDebugBall_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SZDebugBall_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		65278C9F848AA645B49CD3B5685D55C2 /* Pods_SZDebugBall_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SZDebugBall_Example.framework; path = "Pods-SZDebugBall_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		65278C9F848AA645B49CD3B5685D55C2 /* Pods_SZDebugBall_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SZDebugBall_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F267A7B29638E4D62B8CA6B54C6B92E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7260F381AF6866762749C07600B682B3 /* Pods-SZDebugBall_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SZDebugBall_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		87F8C150B44F396AD96DF559EDC55821 /* Pods-SZDebugBall_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SZDebugBall_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		887DA09113EEC44DA2D166608399C7D0 /* Pods-SZDebugBall_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SZDebugBall_Example.release.xcconfig"; sourceTree = "<group>"; };
 		8B0726D8E9EC6214846327B97AB1A7D8 /* Pods-SZDebugBall_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SZDebugBall_Example-frameworks.sh"; sourceTree = "<group>"; };
 		8E3A999F29BF9D0254193B6D3A9A4DC6 /* Pods-SZDebugBall_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SZDebugBall_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		9316C3A7A044B32F65D2E775ECAE7D00 /* SZDebugBall.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = SZDebugBall.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9316C3A7A044B32F65D2E775ECAE7D00 /* SZDebugBall.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = SZDebugBall.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AC59241D6C8742B83CB83E5C7C8A4714 /* Pods-SZDebugBall_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SZDebugBall_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		B442C7C5FE358A38D0792BE0A0B1E07D /* Pods-SZDebugBall_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SZDebugBall_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		BA5C172F565BA9D5E42436D5F722A173 /* Pods-SZDebugBall_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SZDebugBall_Example-umbrella.h"; sourceTree = "<group>"; };
-		C74826163C86850E1CE183A36674758C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		BE7FFA0F229E9DC000B37848 /* SZDebugVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SZDebugVC.m; path = SZDebugBall/Classes/SZDebugVC.m; sourceTree = "<group>"; };
+		BE7FFA10229E9DC000B37848 /* SZDebugBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SZDebugBall.m; path = SZDebugBall/Classes/SZDebugBall.m; sourceTree = "<group>"; };
+		BE7FFA11229E9DC000B37848 /* UIDevice+Debugging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+Debugging.m"; path = "SZDebugBall/Classes/UIDevice+Debugging.m"; sourceTree = "<group>"; };
+		BE7FFA12229E9DC000B37848 /* SZEnvironmentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SZEnvironmentVC.h; path = SZDebugBall/Classes/SZEnvironmentVC.h; sourceTree = "<group>"; };
+		BE7FFA13229E9DC000B37848 /* UITextView+Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITextView+Placeholder.h"; path = "SZDebugBall/Classes/UITextView+Placeholder.h"; sourceTree = "<group>"; };
+		BE7FFA14229E9DC000B37848 /* UITextView+Placeholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITextView+Placeholder.m"; path = "SZDebugBall/Classes/UITextView+Placeholder.m"; sourceTree = "<group>"; };
+		BE7FFA15229E9DC100B37848 /* SZEnvironmentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SZEnvironmentManager.h; path = SZDebugBall/Classes/SZEnvironmentManager.h; sourceTree = "<group>"; };
+		BE7FFA16229E9DC100B37848 /* SZEnvironmentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SZEnvironmentVC.m; path = SZDebugBall/Classes/SZEnvironmentVC.m; sourceTree = "<group>"; };
+		BE7FFA17229E9DC100B37848 /* SZEnvironmentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SZEnvironmentManager.m; path = SZDebugBall/Classes/SZEnvironmentManager.m; sourceTree = "<group>"; };
+		BE7FFA18229E9DC100B37848 /* SZDebugBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SZDebugBall.h; path = SZDebugBall/Classes/SZDebugBall.h; sourceTree = "<group>"; };
+		BE7FFA19229E9DC100B37848 /* UIDevice+Debugging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDevice+Debugging.h"; path = "SZDebugBall/Classes/UIDevice+Debugging.h"; sourceTree = "<group>"; };
+		BE7FFA1A229E9DC100B37848 /* SZNewEnvironmentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SZNewEnvironmentVC.h; path = SZDebugBall/Classes/SZNewEnvironmentVC.h; sourceTree = "<group>"; };
+		BE7FFA1B229E9DC100B37848 /* SZNewEnvironmentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SZNewEnvironmentVC.m; path = SZDebugBall/Classes/SZNewEnvironmentVC.m; sourceTree = "<group>"; };
+		BE7FFA1C229E9DC100B37848 /* SZDebugVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SZDebugVC.h; path = SZDebugBall/Classes/SZDebugVC.h; sourceTree = "<group>"; };
+		C74826163C86850E1CE183A36674758C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		CEDF6FF8040E4F71276BEAD4A8AD5A31 /* SZDebugBall.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SZDebugBall.xcconfig; sourceTree = "<group>"; };
 		D014DF23B1D1CE1E8B2F85B6778AF124 /* Pods-SZDebugBall_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SZDebugBall_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		D6465373839F69DD81EED5F5A88EE21D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		DD10AF04B2E702BBACD0D45E57CB196D /* Pods-SZDebugBall_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SZDebugBall_Example-dummy.m"; sourceTree = "<group>"; };
 		DD8FB755462A28BC060432CDAD798BEB /* SZDebugBall.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SZDebugBall.modulemap; sourceTree = "<group>"; };
-		E6E5934EC987C4AB61B57518558C6510 /* ReplaceMe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ReplaceMe.m; path = SZDebugBall/Classes/ReplaceMe.m; sourceTree = "<group>"; };
-		E9CA5CAF7E0CBD1EBDE98987C208EF90 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		F0A19C7C90B0A9B86B11057191796970 /* SZDebugBall.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SZDebugBall.framework; path = SZDebugBall.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9CA5CAF7E0CBD1EBDE98987C208EF90 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		F0A19C7C90B0A9B86B11057191796970 /* SZDebugBall.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SZDebugBall.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6DFDF4B0BEB877924C742B6EA21CFDB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA1DD9260B6384D19FE3EBDE77B079CF /* Pods-SZDebugBall_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SZDebugBall_Example-resources.sh"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,7 +150,20 @@
 		30AC6D3B40758612A6C91148B889DA43 /* SZDebugBall */ = {
 			isa = PBXGroup;
 			children = (
-				E6E5934EC987C4AB61B57518558C6510 /* ReplaceMe.m */,
+				BE7FFA15229E9DC100B37848 /* SZEnvironmentManager.h */,
+				BE7FFA17229E9DC100B37848 /* SZEnvironmentManager.m */,
+				BE7FFA18229E9DC100B37848 /* SZDebugBall.h */,
+				BE7FFA10229E9DC000B37848 /* SZDebugBall.m */,
+				BE7FFA1C229E9DC100B37848 /* SZDebugVC.h */,
+				BE7FFA0F229E9DC000B37848 /* SZDebugVC.m */,
+				BE7FFA12229E9DC000B37848 /* SZEnvironmentVC.h */,
+				BE7FFA16229E9DC100B37848 /* SZEnvironmentVC.m */,
+				BE7FFA1A229E9DC100B37848 /* SZNewEnvironmentVC.h */,
+				BE7FFA1B229E9DC100B37848 /* SZNewEnvironmentVC.m */,
+				BE7FFA19229E9DC100B37848 /* UIDevice+Debugging.h */,
+				BE7FFA11229E9DC000B37848 /* UIDevice+Debugging.m */,
+				BE7FFA13229E9DC000B37848 /* UITextView+Placeholder.h */,
+				BE7FFA14229E9DC000B37848 /* UITextView+Placeholder.m */,
 				ABD38A09E86B55841683CD62F97CD75C /* Pod */,
 				64413F80E91938B5E2AA2EE9CF63B584 /* Support Files */,
 			);
@@ -250,7 +290,14 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE7FFA28229E9DC100B37848 /* SZNewEnvironmentVC.h in Headers */,
+				BE7FFA21229E9DC100B37848 /* UITextView+Placeholder.h in Headers */,
+				BE7FFA23229E9DC100B37848 /* SZEnvironmentManager.h in Headers */,
+				BE7FFA26229E9DC100B37848 /* SZDebugBall.h in Headers */,
+				BE7FFA20229E9DC100B37848 /* SZEnvironmentVC.h in Headers */,
 				F1A53762644201DB5479D1E40A0BD4A1 /* Pods-SZDebugBall_Example-umbrella.h in Headers */,
+				BE7FFA2A229E9DC100B37848 /* SZDebugVC.h in Headers */,
+				BE7FFA27229E9DC100B37848 /* UIDevice+Debugging.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,6 +374,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
@@ -370,7 +418,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE7FFA1F229E9DC100B37848 /* UIDevice+Debugging.m in Sources */,
+				BE7FFA1E229E9DC100B37848 /* SZDebugBall.m in Sources */,
 				53CCEA80DEE5C5788DF30B7FBB27FC3B /* Pods-SZDebugBall_Example-dummy.m in Sources */,
+				BE7FFA24229E9DC100B37848 /* SZEnvironmentVC.m in Sources */,
+				BE7FFA29229E9DC100B37848 /* SZNewEnvironmentVC.m in Sources */,
+				BE7FFA22229E9DC100B37848 /* UITextView+Placeholder.m in Sources */,
+				BE7FFA25229E9DC100B37848 /* SZEnvironmentManager.m in Sources */,
+				BE7FFA1D229E9DC100B37848 /* SZDebugVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,7 +441,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76271BFC41406FDCEA008363E9FB819D /* ReplaceMe.m in Sources */,
+				BE7FFA2B229E9EB400B37848 /* SZEnvironmentManager.m in Sources */,
 				DAA9483C1844E7F00E93551BFB914F81 /* SZDebugBall-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -561,8 +616,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.2;
 				SYMROOT = "${SRCROOT}/../build";
 			};

@@ -4,10 +4,4 @@ platform :ios, '8.0'
 
 target 'SZDebugBall_Example' do
   pod 'SZDebugBall', :path => '../'
-
-  target 'SZDebugBall_Tests' do
-    inherit! :search_paths
-
-    
-  end
 end
