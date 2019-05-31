@@ -17,6 +17,10 @@
 NSLog(@"BASE_URL:%@", [SZEnvironmentManager currentAddress]);
 ```
 
+
+## Screenshot
+![screenshot](https://github.com/willzh/SZDebugBall/blob/master/screenshots/screenshot.png)
+
 ## Requirements
 
 ## Installation
