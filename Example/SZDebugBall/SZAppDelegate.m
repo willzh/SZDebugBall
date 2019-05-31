@@ -9,11 +9,21 @@
 #import "SZAppDelegate.h"
 #import <SZDebugBall/SZEnvironmentManager.h>
 
+#define BASE_URL [SZEnvironmentManager currentAddress]
+
 @implementation SZAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    [SZEnvironmentManager configEnvs:@[@"开发", @"测试", @"生产"] address:@[@"http://www.api.com/develop", @"http://www.api.com/test", @"http://www.api.com/product"]];
+    
+    [SZEnvironmentManager configCurrentAddress:@"http://www.api.com/develop"];
+    
+    NSLog(@"BASE_URL:%@", BASE_URL);
+    
+    
     return YES;
 }
 
