@@ -19,7 +19,9 @@ NSLog(@"BASE_URL:%@", [SZEnvironmentManager currentAddress]);
 
 
 ## Screenshot
-![screenshot](https://github.com/willzh/SZDebugBall/blob/master/screenshots/screenshot.png)
+<p align="center">
+<img src="https://github.com/willzh/SZDebugBall/blob/master/screenshots/screenshot.png" alt="screenshot"  width="414" height="672">
+</p>
 
 ## Requirements
 
