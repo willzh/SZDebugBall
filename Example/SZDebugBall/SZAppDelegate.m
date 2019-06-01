@@ -7,7 +7,8 @@
 //
 
 #import "SZAppDelegate.h"
-#import <SZDebugBall/SZEnvironmentManager.h>
+//#import <SZDebugBall/SZDebugBall.h>
+#import "SZDebugBall.h"
 
 #define BASE_URL [SZEnvironmentManager currentAddress]
 
