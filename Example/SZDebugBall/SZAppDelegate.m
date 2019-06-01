@@ -24,9 +24,20 @@
     
     NSLog(@"BASE_URL:%@", BASE_URL);
     
+    /// 环境切换成功后的通知。环境切换成功后，会自动退出 App 一次。
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(environmentChanged:) name:SZEnvironmentChangedNotification object:nil];
+    
     
     return YES;
 }
+
+
+- (void)environmentChanged:(NSNotification *)notice
+{
+    // 处理环境切换后逻辑，比如退出登录
+    
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
