@@ -38,7 +38,6 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"关闭" style:UIBarButtonItemStylePlain target:self action:@selector(closeAction:)];
     
     [self.view addSubview:self.table];
-    self.currentEnv = [SZEnvironmentManager currentEnv];
     
 }
 
@@ -47,6 +46,9 @@
     [super viewWillAppear:animated];
     
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+    
+    self.currentEnv = [SZEnvironmentManager currentEnv];
+    [self.table reloadData];
     
 }
 

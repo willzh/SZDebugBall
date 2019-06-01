@@ -15,6 +15,7 @@
 @property (nonatomic, strong) UITableView *table; //!< tableView
 @property (nonatomic, strong) NSMutableArray <SZEnvironment *> *datas; //!< 数据
 @property (nonatomic, strong) SZEnvironment *currentEnv; //!< 当前选中的
+@property (nonatomic, assign) NSInteger selectedIndex; //!< 当前选中的索引
 
 @end
 
@@ -27,6 +28,7 @@
 {
     [super viewDidLoad];
     
+    NSLog(@"%@", NSStringFromSelector(_cmd));
     self.title = @"环境配置";
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -40,6 +42,7 @@
     [self.datas addObjectsFromArray:config.defaultEnvs];
     [self.datas addObjectsFromArray:config.customEnvs];
     self.currentEnv = [config currentEnv];
+    self.selectedIndex = [_datas indexOfObject:_currentEnv];
     
 }
 
@@ -47,12 +50,18 @@
 #pragma mark -
 - (IBAction)doneAction:(id)sender
 {
-    NSString *msg = [NSString stringWithFormat:@"App 环境将切换为 '%@'，点击确定后，将会退出 App，之后请手动启动您的 App。您确定切换吗？", _currentEnv.title];
+    SZEnvironment *env = _datas[_selectedIndex];
+    if ([env isEqual:_currentEnv])
+    {
+        [self.navigationController popViewControllerAnimated:YES];
+        return;
+    }
+    NSString *msg = [NSString stringWithFormat:@"App 环境将切换为 '%@'，点击确定后，将会退出 App，之后请手动启动您的 App。您确定切换吗？", env.title];
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"修改环境" message:msg preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
         [SZEnvironmentManager setCurrentEnv:self.currentEnv];
+        [[NSNotificationCenter defaultCenter] postNotificationName:SZEnvironmentChangedNotification object:nil];
         // exit 和 abort 都可以退出 App。exit 是正常退出，表现是直接退出。abort 是异常退出，会有错误日志，表现较平滑。
         //exit(0);
         abort();
@@ -114,7 +123,7 @@
     cell.textLabel.text = model.title;
     cell.detailTextLabel.text = model.address;
     
-    if ([model isEqual:_currentEnv]) {
+    if (_selectedIndex == indexPath.row) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }else {
         cell.accessoryType = UITableViewCellAccessoryNone;
@@ -140,19 +149,53 @@
         return;
     }
     
-    self.currentEnv = self.datas[indexPath.row];
+    self.selectedIndex = indexPath.row;
     [tableView reloadData];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row >= self.datas.count) {
+        return NO;
+    }
     return YES;
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row >= self.datas.count) {
+        return UITableViewCellEditingStyleNone;
+    }
+    return UITableViewCellEditingStyleDelete;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
+        if (_datas.count <= 1)
+        {
+            NSString *msg = [NSString stringWithFormat:@"不能删除最后一个环境"];
+            UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:msg preferredStyle:UIAlertControllerStyleAlert];
+            [alertVC addAction:[UIAlertAction actionWithTitle:@"知道了" style:UIAlertActionStyleCancel handler:nil]];
+            [self presentViewController:alertVC animated:YES completion:nil];
+            return;
+        }
+        
+        // 不能删除当前环境
+        SZEnvironment *model = _datas[indexPath.row];
+        if ([model isEqual:_currentEnv])
+        {
+            NSString *msg = [NSString stringWithFormat:@"不能删除当前环境，请先确认切换到其他环境"];
+            UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:msg preferredStyle:UIAlertControllerStyleAlert];
+            [alertVC addAction:[UIAlertAction actionWithTitle:@"知道了" style:UIAlertActionStyleCancel handler:nil]];
+            [self presentViewController:alertVC animated:YES completion:nil];
+            return;
+        }
+        
+        [SZEnvironmentManager deleteEnv:_datas[indexPath.row]];
+        [self reloadData];
         
     }
 }
@@ -167,6 +210,7 @@
     [self.datas addObjectsFromArray:config.defaultEnvs];
     [self.datas addObjectsFromArray:config.customEnvs];
     self.currentEnv = [config currentEnv];
+    self.selectedIndex = [_datas indexOfObject:_currentEnv];
     [self.table reloadData];
 }
 
@@ -183,8 +227,6 @@
         _table.alwaysBounceVertical = YES;
         _table.separatorStyle = UITableViewCellSeparatorStyleNone;
         
-//        [_table registerClass:[SZEnvironmentCell class] forCellReuseIdentifier:@"SZEnvironmentCell"];
-//        [_table registerClass:[UITableViewCell class] forCellReuseIdentifier:@"NormalCell"];
     }
     return _table;
 }

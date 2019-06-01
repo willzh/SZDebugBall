@@ -7,7 +7,6 @@
 //
 
 #import "SZDebugBall.h"
-#import "SZEnvironmentManager.h"
 #import "SZDebugVC.h"
 
 static NSInteger const kDebugBallWindowLevel = 10000000;
@@ -113,6 +112,8 @@ static inline CGFloat zs_screenWidth() {
     [self makeKeyAndVisible];
     
     [mainWindow makeKeyWindow];
+    
+    self.label_title.text = [[SZEnvironmentManager currentEnv].title substringToIndex:1];
     
 }
 

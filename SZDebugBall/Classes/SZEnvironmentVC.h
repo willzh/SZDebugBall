@@ -14,7 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SZEnvironmentVC : UIViewController
 
-@property (nonatomic, copy) void (^didSelectedEnv)(NSDictionary *envDict); //!< 选中回调
 
 @end
 

@@ -10,6 +10,7 @@
 
 
 #import <UIKit/UIKit.h>
+#import "SZEnvironmentManager.h"
 
 @interface SZDebugBall : UIWindow
 

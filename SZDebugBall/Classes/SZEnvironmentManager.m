@@ -10,6 +10,7 @@
 #import "SZEnvironmentManager.h"
 #import "UIDevice+Debugging.h"
 
+NSNotificationName const SZEnvironmentChangedNotification = @"SZEnvironmentChangedNotification";
 
 @implementation SZEnvironmentManager
 
@@ -21,6 +22,11 @@
 {
     NSAssert(titles.count, @"Please config the environment titles.");
     NSAssert(titles.count == address.count, @"Please confirm titles and address is equal to length.");
+    
+    /// 非联机调试时，不能改变
+    if (![UIDevice zs_isBeingDebugged]) {
+        return;
+    }
     
     // 读取以保存的配置，避免重复配置。
     SZEnvironmentConfig *configs = [SZEnvironmentConfig loadConfig];

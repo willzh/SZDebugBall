@@ -5,6 +5,13 @@
 [![License](https://img.shields.io/cocoapods/l/SZDebugBall.svg?style=flat)](https://cocoapods.org/pods/SZDebugBall)
 [![Platform](https://img.shields.io/cocoapods/p/SZDebugBall.svg?style=flat)](https://cocoapods.org/pods/SZDebugBall)
 
+## Feature
+1. 环境切换
+[x] 手动切换环境
+[x] 代码切换环境
+[x] 新增环境
+[x] 删除环境
+
 ## Example
 ``` 
 #import <SZDebugBall/SZEnvironmentManager.h>
@@ -15,6 +22,10 @@
 [SZEnvironmentManager configCurrentAddress:@"http://www.api.com/develop"];
 
 NSLog(@"BASE_URL:%@", [SZEnvironmentManager currentAddress]);
+
+/// 环境切换成功后的通知。环境切换成功后，会自动退出 App 一次。
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(environmentChanged:) name:SZEnvironmentChangedNotification object:nil];
+
 ```
 
 
@@ -23,7 +34,6 @@ NSLog(@"BASE_URL:%@", [SZEnvironmentManager currentAddress]);
 <img src="https://github.com/willzh/SZDebugBall/blob/master/screenshots/screenshot.png" alt="screenshot"  width="310" height="300">
 </p>
 
-## Requirements
 
 ## Installation
 
@@ -33,10 +43,6 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod 'SZDebugBall'
 ```
-
-## Author
-
-willzh
 
 ## License
 
