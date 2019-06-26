@@ -11,10 +11,17 @@
 
 #import "SZDebugVC.h"
 #import "SZEnvironmentVC.h"
+#import "SZViewHierarchyVC.h"
+#import "SZLocalFilesVC.h"
+
 #import "SZEnvironmentManager.h"
 #import "SZDebugBall.h"
 
 @interface SZDebugVC () <UITableViewDataSource, UITableViewDelegate>
+{
+    BOOL navBarHidden;
+    BOOL isLoaded;
+}
 
 @property (nonatomic, strong) UITableView *table; //!< tableView
 @property (nonatomic, strong) NSMutableArray <SZEnvironment *> *datas; //!< 数据
@@ -34,10 +41,37 @@
     self.title = @"Main";
     
     self.view.backgroundColor = [UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:1];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"关闭" style:UIBarButtonItemStylePlain target:self action:@selector(closeAction:)];
+    CGRect topBarFrame = CGRectUnion(self.navigationController.navigationBar.frame, [UIApplication sharedApplication].statusBarFrame);
+    CGFloat tw = CGRectGetWidth(topBarFrame);
+    CGFloat th = CGRectGetHeight(topBarFrame);
     
     [self.view addSubview:self.table];
+    _table.contentInset = UIEdgeInsetsMake(th, 0, 0, 0);
+    
+    UIView *topBar = [[UIView alloc] initWithFrame:topBarFrame];
+    topBar.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:topBar];
+    
+    UILabel *label_title = [[UILabel alloc] initWithFrame:CGRectMake((tw - 200) / 2.0, th - 44, 200, 44)];
+    label_title.textAlignment = NSTextAlignmentCenter;
+    label_title.textColor = [UIColor blackColor];
+    label_title.text = @"Main";
+    [topBar addSubview:label_title];
+    
+    UIButton *btn_left = [[UIButton alloc] initWithFrame:CGRectMake(0, th - 44, 60, 44)];
+    [btn_left setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn_left setTitle:@"关闭" forState:UIControlStateNormal];
+    [btn_left addTarget:self action:@selector(closeAction:) forControlEvents:UIControlEventTouchUpInside];
+    [topBar addSubview:btn_left];
+    
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"关闭" style:UIBarButtonItemStylePlain target:self action:@selector(closeAction:)];
+    
+    
+    isLoaded = YES;
+    
     
 }
 
@@ -45,10 +79,21 @@
 {
     [super viewWillAppear:animated];
     
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    if (!isLoaded) {
+        navBarHidden = self.navigationController.navigationBarHidden; // 记录原来的导航显示
+    }
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
     
     self.currentEnv = [SZEnvironmentManager currentEnv];
     [self.table reloadData];
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self.navigationController setNavigationBarHidden:navBarHidden animated:YES];
     
 }
 
@@ -104,10 +149,12 @@
         [self.navigationController pushViewController:vc animated:YES];
     }else if (indexPath.item == 1)
     {
-        
+        SZLocalFilesVC *vc = [[SZLocalFilesVC alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }else if (indexPath.item == 2)
     {
-        
+        SZViewHierarchyVC *vc = [[SZViewHierarchyVC alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 

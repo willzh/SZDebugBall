@@ -3,5 +3,5 @@ use_frameworks!
 platform :ios, '10.0'
 
 target 'SZDebugBall_Example' do
-  pod 'SZDebugBall', :path => '../'
+#  pod 'SZDebugBall', :path => '../'
 end

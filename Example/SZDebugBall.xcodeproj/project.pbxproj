@@ -18,6 +18,15 @@
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		BE75610022A4B1C700D0A856 /* SZEnvironmentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7560F322A4B1C600D0A856 /* SZEnvironmentVC.m */; };
+		BE75610122A4B1C700D0A856 /* SZNewEnvironmentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7560F522A4B1C600D0A856 /* SZNewEnvironmentVC.m */; };
+		BE75610222A4B1C700D0A856 /* UIDevice+Debugging.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7560F622A4B1C600D0A856 /* UIDevice+Debugging.m */; };
+		BE75610322A4B1C700D0A856 /* SZDebugBall.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7560F922A4B1C700D0A856 /* SZDebugBall.m */; };
+		BE75610422A4B1C700D0A856 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7560FB22A4B1C700D0A856 /* UITextView+Placeholder.m */; };
+		BE75610522A4B1C700D0A856 /* SZEnvironmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7560FD22A4B1C700D0A856 /* SZEnvironmentManager.m */; };
+		BE75610622A4B1C700D0A856 /* SZDebugVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7560FE22A4B1C700D0A856 /* SZDebugVC.m */; };
+		BE75610B22A4B26D00D0A856 /* SZViewHierarchyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BE75610922A4B26D00D0A856 /* SZViewHierarchyVC.m */; };
+		BE75610C22A4B26D00D0A856 /* SZLocalFilesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BE75610A22A4B26D00D0A856 /* SZLocalFilesVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +54,24 @@
 		81161B632F74AF8B136987CA /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		86FBF9AA5F9CF37F7BD78470 /* SZDebugBall.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SZDebugBall.podspec; path = ../SZDebugBall.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BE7560F222A4B1C600D0A856 /* SZEnvironmentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZEnvironmentManager.h; sourceTree = "<group>"; };
+		BE7560F322A4B1C600D0A856 /* SZEnvironmentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZEnvironmentVC.m; sourceTree = "<group>"; };
+		BE7560F422A4B1C600D0A856 /* SZNewEnvironmentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZNewEnvironmentVC.h; sourceTree = "<group>"; };
+		BE7560F522A4B1C600D0A856 /* SZNewEnvironmentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZNewEnvironmentVC.m; sourceTree = "<group>"; };
+		BE7560F622A4B1C600D0A856 /* UIDevice+Debugging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Debugging.m"; sourceTree = "<group>"; };
+		BE7560F722A4B1C600D0A856 /* SZDebugBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZDebugBall.h; sourceTree = "<group>"; };
+		BE7560F822A4B1C700D0A856 /* UIDevice+Debugging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Debugging.h"; sourceTree = "<group>"; };
+		BE7560F922A4B1C700D0A856 /* SZDebugBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZDebugBall.m; sourceTree = "<group>"; };
+		BE7560FA22A4B1C700D0A856 /* UITextView+Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
+		BE7560FB22A4B1C700D0A856 /* UITextView+Placeholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Placeholder.m"; sourceTree = "<group>"; };
+		BE7560FC22A4B1C700D0A856 /* SZDebugVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZDebugVC.h; sourceTree = "<group>"; };
+		BE7560FD22A4B1C700D0A856 /* SZEnvironmentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZEnvironmentManager.m; sourceTree = "<group>"; };
+		BE7560FE22A4B1C700D0A856 /* SZDebugVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZDebugVC.m; sourceTree = "<group>"; };
+		BE7560FF22A4B1C700D0A856 /* SZEnvironmentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZEnvironmentVC.h; sourceTree = "<group>"; };
+		BE75610722A4B26D00D0A856 /* SZViewHierarchyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZViewHierarchyVC.h; sourceTree = "<group>"; };
+		BE75610822A4B26D00D0A856 /* SZLocalFilesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZLocalFilesVC.h; sourceTree = "<group>"; };
+		BE75610922A4B26D00D0A856 /* SZViewHierarchyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZViewHierarchyVC.m; sourceTree = "<group>"; };
+		BE75610A22A4B26D00D0A856 /* SZLocalFilesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZLocalFilesVC.m; sourceTree = "<group>"; };
 		CE1B10625CAEEDD301B2C1AB /* Pods-SZDebugBall_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SZDebugBall_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SZDebugBall_Example/Pods-SZDebugBall_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,6 +130,7 @@
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* SZViewController.h */,
 				6003F5A6195388D20070C39A /* SZViewController.m */,
+				BE7560DA22A4B0CA00D0A856 /* Classes */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -132,6 +160,32 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		BE7560DA22A4B0CA00D0A856 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				BE7560F722A4B1C600D0A856 /* SZDebugBall.h */,
+				BE7560F922A4B1C700D0A856 /* SZDebugBall.m */,
+				BE7560FC22A4B1C700D0A856 /* SZDebugVC.h */,
+				BE7560FE22A4B1C700D0A856 /* SZDebugVC.m */,
+				BE7560F222A4B1C600D0A856 /* SZEnvironmentManager.h */,
+				BE7560FD22A4B1C700D0A856 /* SZEnvironmentManager.m */,
+				BE7560FF22A4B1C700D0A856 /* SZEnvironmentVC.h */,
+				BE7560F322A4B1C600D0A856 /* SZEnvironmentVC.m */,
+				BE7560F422A4B1C600D0A856 /* SZNewEnvironmentVC.h */,
+				BE7560F522A4B1C600D0A856 /* SZNewEnvironmentVC.m */,
+				BE7560F822A4B1C700D0A856 /* UIDevice+Debugging.h */,
+				BE7560F622A4B1C600D0A856 /* UIDevice+Debugging.m */,
+				BE7560FA22A4B1C700D0A856 /* UITextView+Placeholder.h */,
+				BE7560FB22A4B1C700D0A856 /* UITextView+Placeholder.m */,
+				BE75610822A4B26D00D0A856 /* SZLocalFilesVC.h */,
+				BE75610A22A4B26D00D0A856 /* SZLocalFilesVC.m */,
+				BE75610722A4B26D00D0A856 /* SZViewHierarchyVC.h */,
+				BE75610922A4B26D00D0A856 /* SZViewHierarchyVC.m */,
+			);
+			name = Classes;
+			path = ../../SZDebugBall/Classes;
+			sourceTree = "<group>";
+		};
 		C62E623FE247CBAA3EBDC91F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,7 +208,6 @@
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				2DAA675E4F7E6F72D47A3C96 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -174,6 +227,11 @@
 				CLASSPREFIX = SZ;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = willzh;
+				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = 7UWSX7L94J;
+					};
+				};
 			};
 			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "SZDebugBall" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -209,24 +267,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2DAA675E4F7E6F72D47A3C96 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SZDebugBall_Example/Pods-SZDebugBall_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SZDebugBall/SZDebugBall.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SZDebugBall.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SZDebugBall_Example/Pods-SZDebugBall_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		7AA2F9F6AFE6B10E85C8987D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -256,9 +296,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE75610222A4B1C700D0A856 /* UIDevice+Debugging.m in Sources */,
 				6003F59E195388D20070C39A /* SZAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* SZViewController.m in Sources */,
+				BE75610C22A4B26D00D0A856 /* SZLocalFilesVC.m in Sources */,
+				BE75610B22A4B26D00D0A856 /* SZViewHierarchyVC.m in Sources */,
+				BE75610522A4B1C700D0A856 /* SZEnvironmentManager.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				BE75610322A4B1C700D0A856 /* SZDebugBall.m in Sources */,
+				BE75610122A4B1C700D0A856 /* SZNewEnvironmentVC.m in Sources */,
+				BE75610622A4B1C700D0A856 /* SZDebugVC.m in Sources */,
+				BE75610022A4B1C700D0A856 /* SZEnvironmentVC.m in Sources */,
+				BE75610422A4B1C700D0A856 /* UITextView+Placeholder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +411,7 @@
 			baseConfigurationReference = CE1B10625CAEEDD301B2C1AB /* Pods-SZDebugBall_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7UWSX7L94J;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SZDebugBall/SZDebugBall-Prefix.pch";
 				INFOPLIST_FILE = "SZDebugBall/SZDebugBall-Info.plist";
@@ -383,6 +433,7 @@
 			baseConfigurationReference = 4136DFEF4363693D6E72B3FD /* Pods-SZDebugBall_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7UWSX7L94J;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SZDebugBall/SZDebugBall-Prefix.pch";
 				INFOPLIST_FILE = "SZDebugBall/SZDebugBall-Info.plist";

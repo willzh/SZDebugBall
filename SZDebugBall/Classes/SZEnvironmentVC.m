@@ -32,10 +32,44 @@
     self.title = @"环境配置";
     self.view.backgroundColor = [UIColor whiteColor];
     
+    CGFloat navbarH = CGRectGetHeight(self.navigationController.navigationBar.frame);
+    CGFloat statusH = CGRectGetHeight([UIApplication sharedApplication].statusBarFrame);
+    CGRect topBarFrame = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), navbarH + statusH);
+    CGFloat tw = CGRectGetWidth(topBarFrame);
+    CGFloat th = CGRectGetHeight(topBarFrame);
+    
     self.datas = [NSMutableArray array];
     [self.view addSubview:self.table];
+    _table.contentInset = UIEdgeInsetsMake(th, 0, 0, 0);
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneAction:)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneAction:)];
+    
+    
+    [self.view addSubview:self.table];
+    _table.contentInset = UIEdgeInsetsMake(th, 0, 0, 0);
+    
+    UIView *topBar = [[UIView alloc] initWithFrame:topBarFrame];
+    topBar.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:topBar];
+    
+    UILabel *label_title = [[UILabel alloc] initWithFrame:CGRectMake((tw - 200) / 2.0, th - 44, 200, 44)];
+    label_title.textAlignment = NSTextAlignmentCenter;
+    label_title.textColor = [UIColor blackColor];
+    label_title.text = @"环境配置";
+    [topBar addSubview:label_title];
+    
+    UIButton *btn_left = [[UIButton alloc] initWithFrame:CGRectMake(0, th - 44, 60, 44)];
+    [btn_left setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn_left setTitle:@"<" forState:UIControlStateNormal];
+    [btn_left addTarget:self action:@selector(closeAction:) forControlEvents:UIControlEventTouchUpInside];
+    [topBar addSubview:btn_left];
+    
+    UIButton *btn_right = [[UIButton alloc] initWithFrame:CGRectMake(tw - 60, th - 44, 60, 44)];
+    [btn_right setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn_right setTitle:@"完成" forState:UIControlStateNormal];
+    [btn_right addTarget:self action:@selector(doneAction:) forControlEvents:UIControlEventTouchUpInside];
+    [topBar addSubview:btn_right];
+    
     
     //读取数据
     SZEnvironmentConfig *config = [SZEnvironmentConfig loadConfig];
@@ -46,8 +80,21 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
+}
+
 
 #pragma mark -
+- (void)closeAction:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (IBAction)doneAction:(id)sender
 {
     SZEnvironment *env = _datas[_selectedIndex];

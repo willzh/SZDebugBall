@@ -1,6 +1,0 @@
-framework module SZDebugBall {
-  umbrella header "SZDebugBall-umbrella.h"
-
-  export *
-  module * { export * }
-}

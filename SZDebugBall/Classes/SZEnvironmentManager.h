@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 /// 环境切换后通知
 UIKIT_EXTERN NSNotificationName const SZEnvironmentChangedNotification;
-
-NS_ASSUME_NONNULL_BEGIN
 
 /// 环境模型
 @interface SZEnvironment : NSObject <NSCoding>

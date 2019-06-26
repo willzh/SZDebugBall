@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SZDebugBall'
-  s.version          = '1.0.4'
+  s.version          = '1.0.5'
   s.summary          = 'App 开发，测试帮助。内环境切换.'
 
 # This description is used to generate tags and improve search results.

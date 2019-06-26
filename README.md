@@ -14,7 +14,7 @@
 
 ## Example
 ``` 
-#import <SZDebugBall/SZEnvironmentManager.h>
+#import <SZDebugBall/SZDebugBall.h>
 ```
 ``` 
 [SZEnvironmentManager configEnvs:@[@"开发", @"测试", @"生产"] address:@[@"http://www.api.com/develop", @"http://www.api.com/test", @"http://www.api.com/product"]];
