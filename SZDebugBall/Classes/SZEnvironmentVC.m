@@ -107,7 +107,7 @@
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"修改环境" message:msg preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [SZEnvironmentManager setCurrentEnv:self.currentEnv];
+        [SZEnvironmentManager setCurrentEnv:env];
         [[NSNotificationCenter defaultCenter] postNotificationName:SZEnvironmentChangedNotification object:nil];
         // exit 和 abort 都可以退出 App。exit 是正常退出，表现是直接退出。abort 是异常退出，会有错误日志，表现较平滑。
         //exit(0);
