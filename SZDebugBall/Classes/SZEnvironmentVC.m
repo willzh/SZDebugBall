@@ -59,10 +59,13 @@
     [topBar addSubview:label_title];
     
     UIButton *btn_left = [[UIButton alloc] initWithFrame:CGRectMake(0, th - 44, 60, 44)];
-    [btn_left setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [btn_left setTitle:@"<" forState:UIControlStateNormal];
     [btn_left addTarget:self action:@selector(closeAction:) forControlEvents:UIControlEventTouchUpInside];
     [topBar addSubview:btn_left];
+    
+    UIImageView *btnBg = [[UIImageView alloc] initWithFrame:CGRectMake(20, th - 32, 20, 20)];
+    btnBg.contentMode = UIViewContentModeScaleAspectFit;
+    btnBg.image = [self closeImage];
+    [topBar addSubview:btnBg];
     
     UIButton *btn_right = [[UIButton alloc] initWithFrame:CGRectMake(tw - 60, th - 44, 60, 44)];
     [btn_right setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -277,6 +280,15 @@
     }
     return _table;
 }
+
+
+/// 关闭图标
+- (UIImage *)closeImage
+{
+    return [UIImage imageWithData:[[NSData alloc] initWithBase64EncodedString:@"iVBORw0KGgoAAAAEQ2dCSVAAIAIr1bN/AAAADUlIRFIAAABsAAAAbAgGAAAAj2ZXzQAAABxpRE9UAAAAAgAAAAAAAAA2AAAAKAAAADYAAAA2AAACr6Legx8AAAJ7SURBVOzcv4vaYBzH8UvibyWaKFasVESkiCdikRByIaKoVZMnGrp169atY+dOHbt163bbLb3p6HDTLV26dOnQoUOHQuHgyvU4Sn/YSbiWFvo8hTw+8nnD8w98Xigufnd2EFOKoqQsy3qRz+dtrLHhybIcdxznJAiCFSHkQtM0A6tsMJZt28dBEKzWjxByDrQNTJKk6O9YV9Gy2WwXK20QlmVZR3/CWj/P886AJgjWVTRVVXexGsdM03z+L1jr57ruaTKZvIHlwv9kKaZpHtJgBUGw6vV6+1iPww/C/8CSMF/IWIZhHABLkG9CFizDMA6AxQGr1+vtM2LJmE8ALNM0D4HFIVYsSZIUrBdy3W73GS2WZVlHwBILK4r1Qq7T6TwF1hZj2bZ9DCyBsGRZjmO9kGu3209osRzHOQGWQFiKoiSxXsi1Wq3HwBKkZrP5iBar3++/BBaHGo3GQ0asNNYTAGswGLwCFofq9foDFqxIJKJiPWChv1Wr1e7TYg2Hw9fAEggrGo1qWE8ArNFo9AZYHKpWq/dYsGKxWAHrccBaLpc/aLDG4/FbYHGoUqncZcGKx+PXsB4frO/A2lKsyWTyDlgcKpfLd1iwEonEdazHB+sbDdZ0On0PLA6VSiXCgpVKpapYjwPWYrH4CiwBKhaLt2mxZrPZB2Dxw/pCi5VOp+tYTwCs+Xz+EVgcKhQKAxasTCZzE+txwPJ9/5L2T+DA4pCu63ssWDizwAmLEHIBrC3FwgETvlifKbE+5XK5W1gv5DRNMwgh5zRYOMIlGBbO3HEom812gSUQlud5Z5RYuPrJI1VVd1mwdF3fw3ocsFzXPaXB8n3/Eli/9hMAAP//xX4BygAAAmRJREFU7dw9iNpgHMfxvPiuJCSKFSsVEamgIoEQYi4oilo1Jhq63datW8duXTt263bbbTcdFG66Lrd06dKlQ4cOHQqFKwfHcZS+XKfO7fMM9++Dvy9kFn4fIi7+JemW0jStGwTBeRzHN//6RFF0bZrmnoRo0jStu16vL1jQwjC8Ahphuq5bPGiGYThYTyy0S6ARo4VheAk0gTIMw+FB03Xdwnq0aFcsaOv1+gJohJmmuceDpmlaF+sRokVRdM2CFgTBOdAIK5VKY6DtCFqhULiP9QjRNpvNNxa01Wr1BWiElcvlBzxo+Xy+ifVo0b6zoC2Xy89AI6xSqYQ8aLlcro71CNG22+0PFrTFYvEJaIRVq9WHQNsRtEwmcxfr0aL9ZEGbz+cfgUZYrVbb50FLp9N3sB4t2i8WtNls9gFohNXr9Uc8aKlUqoT1CNFYwOI4vplOp++BRlij0XgMtB1BSyaTBtYTCG0ymbwDGmHNZvMJD1oikdCwnkBo4/H4LdAIa7VaT3nQVFXNYz2i2u32M1a00Wj0BmiEdTqd50DbHbQs1iOq1+u9YEUbDodnQBMQTVGUNNYjqt/vv2RF833/FGhAQyxZlnXAgybLchLrCYTmed4J0MREU7EeUbZtH7Kiua57DDS6ZF40SZIUzEeE5jjOESua4zhHQKNLAZqAaK7rHnOiyZiP4rtRllUeNNu2D4EmJhqiQvM874QVzbKsA6xH2GAweMX4J/mv2Wz2Hpaje9OSvu+f4uCLSD8dFSX9NzScVBIIDUfL/mO04XB4hrOAAqWqavYPGq6lioOW833/dbFY9G/zc38DcgAs3wAAAABJRU5ErkJggg==" options:0]];
+}
+
+
 
 @end
 

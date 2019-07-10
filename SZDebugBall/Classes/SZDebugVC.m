@@ -13,6 +13,8 @@
 #import "SZEnvironmentVC.h"
 #import "SZViewHierarchyVC.h"
 #import "SZLocalFilesVC.h"
+#import "SZUserDefaultsVC.h"
+#import "SZKeyChainVC.h"
 
 #import "SZEnvironmentManager.h"
 #import "SZDebugBall.h"
@@ -24,7 +26,7 @@
 }
 
 @property (nonatomic, strong) UITableView *table; //!< tableView
-@property (nonatomic, strong) NSMutableArray <SZEnvironment *> *datas; //!< 数据
+@property (nonatomic, strong) NSMutableArray <SZDebugFunc *> *datas; //!< 数据
 @property (nonatomic, strong) SZEnvironment *currentEnv; //!< collectionView
 
 @end
@@ -44,34 +46,16 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     
-    CGRect topBarFrame = CGRectUnion(self.navigationController.navigationBar.frame, [UIApplication sharedApplication].statusBarFrame);
-    CGFloat tw = CGRectGetWidth(topBarFrame);
-    CGFloat th = CGRectGetHeight(topBarFrame);
-    
-    [self.view addSubview:self.table];
-    _table.contentInset = UIEdgeInsetsMake(th, 0, 0, 0);
-    
-    UIView *topBar = [[UIView alloc] initWithFrame:topBarFrame];
-    topBar.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:topBar];
-    
-    UILabel *label_title = [[UILabel alloc] initWithFrame:CGRectMake((tw - 200) / 2.0, th - 44, 200, 44)];
-    label_title.textAlignment = NSTextAlignmentCenter;
-    label_title.textColor = [UIColor blackColor];
-    label_title.text = @"Main";
-    [topBar addSubview:label_title];
-    
-    UIButton *btn_left = [[UIButton alloc] initWithFrame:CGRectMake(0, th - 44, 60, 44)];
-    [btn_left setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [btn_left setTitle:@"关闭" forState:UIControlStateNormal];
-    [btn_left addTarget:self action:@selector(closeAction:) forControlEvents:UIControlEventTouchUpInside];
-    [topBar addSubview:btn_left];
-    
-//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"关闭" style:UIBarButtonItemStylePlain target:self action:@selector(closeAction:)];
-    
+    [self setUI];
     
     isLoaded = YES;
     
+    self.datas = [NSMutableArray array];
+    [_datas addObject:[SZDebugFunc funcWithType:SZDebugFunc_Environment]];
+    [_datas addObject:[SZDebugFunc funcWithType:SZDebugFunc_LocalFiles]];
+    [_datas addObject:[SZDebugFunc funcWithType:SZDebugFunc_ViewHierarchy]];
+    [_datas addObject:[SZDebugFunc funcWithType:SZDebugFunc_UserDefaults]];
+    [_datas addObject:[SZDebugFunc funcWithType:SZDebugFunc_KeyChain]];
     
 }
 
@@ -100,7 +84,10 @@
 #pragma mark - Actions
 - (void)closeAction:(id)sender
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    UIViewController *vc = [self.navigationController popViewControllerAnimated:YES];
+    if (!vc) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
     [SZDebugBall show];
 }
 
@@ -113,7 +100,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return _datas.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -124,17 +111,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SZDebugCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SZDebugCell"];
-    
-    if (indexPath.item == 0) {
-        cell.label_title.text = @"修改环境";
-        cell.label_detail.text = _currentEnv.title;
-    }else if (indexPath.item == 1) {
-        cell.label_title.text = @"本地文件";
-        cell.label_detail.text = @"";
-    }else if (indexPath.item == 2) {
-        cell.label_title.text = @"界面层级";
-        cell.label_detail.text = @"";
-    }
+    [cell config:self.datas[indexPath.row] environment:_currentEnv];
     
     return cell;
 }
@@ -143,22 +120,82 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (indexPath.row == 0)
+    SZDebugFunc *model = self.datas[indexPath.row];
+    switch (model.type)
     {
-        SZEnvironmentVC *vc = [[SZEnvironmentVC alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-    }else if (indexPath.item == 1)
-    {
-        SZLocalFilesVC *vc = [[SZLocalFilesVC alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-    }else if (indexPath.item == 2)
-    {
-        SZViewHierarchyVC *vc = [[SZViewHierarchyVC alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
+        case SZDebugFunc_Environment:
+        {
+            SZEnvironmentVC *vc = [[SZEnvironmentVC alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case SZDebugFunc_LocalFiles:
+        {
+            SZLocalFilesVC *vc = [[SZLocalFilesVC alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case SZDebugFunc_ViewHierarchy:
+        {
+            SZViewHierarchyVC *vc = [[SZViewHierarchyVC alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case SZDebugFunc_UserDefaults:
+        {
+            SZUserDefaultsVC *vc = [[SZUserDefaultsVC alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case SZDebugFunc_KeyChain:
+        {
+            SZKeyChainVC *vc = [[SZKeyChainVC alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+            
+        default:
+            break;
     }
+    
 }
 
 
+
+#pragma mark - UI
+- (void)setUI
+{
+    // 顶部
+    CGFloat navbarH = CGRectGetHeight(self.navigationController.navigationBar.frame);
+    CGFloat statusH = CGRectGetHeight([UIApplication sharedApplication].statusBarFrame);
+    CGRect topBarFrame = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), navbarH + statusH);
+    CGFloat tw = CGRectGetWidth(topBarFrame);
+    CGFloat th = CGRectGetHeight(topBarFrame);
+    
+    [self.view addSubview:self.table];
+    _table.contentInset = UIEdgeInsetsMake(th, 0, 0, 0);
+    
+    UIView *topBar = [[UIView alloc] initWithFrame:topBarFrame];
+    topBar.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:topBar];
+    
+    UILabel *label_title = [[UILabel alloc] initWithFrame:CGRectMake((tw - 200) / 2.0, th - 44, 200, 44)];
+    label_title.textAlignment = NSTextAlignmentCenter;
+    label_title.textColor = [UIColor blackColor];
+    label_title.text = @"Main";
+    [topBar addSubview:label_title];
+    
+    UIButton *btn_left = [[UIButton alloc] initWithFrame:CGRectMake(0, th - 44, 60, 44)];
+    [btn_left addTarget:self action:@selector(closeAction:) forControlEvents:UIControlEventTouchUpInside];
+    [topBar addSubview:btn_left];
+    
+    UIImageView *btnBg = [[UIImageView alloc] initWithFrame:CGRectMake(20, th - 32, 20, 20)];
+    btnBg.contentMode = UIViewContentModeScaleAspectFit;
+    btnBg.image = [self closeImage];
+    [topBar addSubview:btnBg];
+    
+    
+}
 
 #pragma mark - lazy loading
 - (UITableView *)table
@@ -177,6 +214,13 @@
     return _table;
 }
 
+/// 关闭图标
+- (UIImage *)closeImage
+{
+    return [UIImage imageWithData:[[NSData alloc] initWithBase64EncodedString:@"iVBORw0KGgoAAAAEQ2dCSVAAIAIr1bN/AAAADUlIRFIAAABsAAAAbAgGAAAAj2ZXzQAAABxpRE9UAAAAAgAAAAAAAAA2AAAAKAAAADYAAAA2AAAC59rZSr0AAAKzSURBVOzbO2/TUBQH8AZhpb6+8iMPJ8pDyqPkMUSUSqiJVBQFLOPHvZGM1AXxCRADM2LjEzHwGdhYu8GQoaiioiEtjGGByIlKQhzH8bXPX7rjOYn+P53Re3sQCGQHEUWxU61WX5bL5Rf7+/sFaCSYJJPJfKlUel6r1V5JknR/5UAmk+lrmnbmOM7U/Xq93geM8T2odDsRBKHW7XbfL/auadpZLpczbh1SVfXp4oD7DYfDX9ls9jHU62/S6fQJpfRmWffFYvF0bojjOMk0za/LhlxoT6BmX7GuV/VuWdY3juPk2WA+n6erhuDSgr8s9ysUCs9mw81m8+3/Dv5B+wlo3pNKpbqU0sk6nbfb7XezBfV6/fU6w3Bp3qMoyvG6WI7jTBuNxpu581x3wV+0dDp9AgzbxXIcZ6qqqu7edaff73/0sohSegNo28UaDAafEonE3bmFCKGKbdvfN0B7BCz/xiKE/PDY7UQQhNqtiyVJOiSEjOHSwnFZlNKJoigPl/4AoPkXWZaPtooFaP5iEUKuto7lF5qiKMeAFRCWT2iTOKLtDAvQGMQCNAaxAG11RFHshAoL0JZj2bZ9GTosv9BkWT4CrICw/EAjhFxFAY0ZLEBjECvOaMxixRENY9xiGitOaBjjlmVZF8xj+YUmimIHsBhCs237MoxokcWKIlrksaKEFhusKKAJgnAQKyy/0DDGrV1gmaZ5HjssP9Asy7oIEi32WCyhARZDaIDFEBpgMYQGWAGhCYJwsOl/QAhVACsgNNM0zzdBQwhVDMMYARYDaIDFEBpgMYQGWAyhAVZI0RBClcWdPM+XACukaIZhjNxoPM+XdF3/AlgMoAFW8GgPvH4XbBjGSNf1zx6xruP8bdvOLg0uK+JohJAxYDGCRggZS5J0CE0zgAZYDKEBFkNoLGL9BgAA///sDeZoAAACKklEQVTt2z1v2kAYB3AwSAGEbRnM6ZAJCJC9IEtZUlUZSkTBEfJxhKVVpgxduiRjq3yJfq7OmbKka7eqeVEadWmnUtSSDOZF95z/f8mb7xnup0fn5yRnMkRj2/aeEOJmNpv9SvIIIW5s297LINuJaZq9OI6/JQWbTCZ3juPsYycJYAGNIBbQCGIBjSAW0AhiAY0gFtDWEMuywlWwpJQPCWe0W8dxXkBgi53FGBu5rnsopXxEpymMNZ1OfzLGRn9qAW0LV07rwgKawveDT2EBjSAW0AhiAY0gFtAIYgGNIBbQCGIBjSAW0AhiAY0gFtAIYgGNIFbq0ShipRaNMlbq0HTASg2aTljao+mIpS2azljaoaUBSxu0NGGRR0sjFlm0NGORQwMWIbRVsKSUjzphKY+2KpbruocZTaMcGrAIoQGLEBqwCKEBixAasAihAWvtaA8bQwPW+lOpVA42glYqlVpCiO9Jf1Ot1WqvwbM81Wr1lZTyR1K0crkc/FvT6Pf7n9FZanbaYDC4zGaz+cViL4GlNhpj7GheqN1uvweW2mhBEFzMiwRBcIEzS+0zLQzDT/MCnPMJOkvtTms2m6d/vzgMYyeKoi/AUhNtPB5/zefz5f+GPGCpieZ53puli+v1+vGyWSyKomvLskJs72ZimmZvOBxeLZnB7lut1rtnFxcKhbrneW993//Q7XbPOedxLpcrYVs3G8MwCpzzuNPpnPm+/7HRaJwUi8XdxXd+A/HRqJkAAAAASUVORK5CYII=" options:0]];
+}
+
+
 
 
 
@@ -184,6 +228,69 @@
 
 
 @end
+
+
+
+
+
+@implementation SZDebugFunc
+
++ (instancetype)funcWithType:(SZDebugFuncType)type
+{
+    SZDebugFunc *model = [[SZDebugFunc alloc] init];
+    model.type = type;
+    
+    [model commonInit];
+    
+    return model;
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self)
+    {
+        [self commonInit];
+    }
+    return self;
+}
+
+- (void)commonInit
+{
+    switch (_type)
+    {
+        case SZDebugFunc_Environment:
+            self.title = @"修改环境";
+            break;
+        case SZDebugFunc_LocalFiles:
+            self.title = @"本地文件";
+            break;
+        case SZDebugFunc_ViewHierarchy:
+            self.title = @"界面层级";
+            break;
+        case SZDebugFunc_UserDefaults:
+            self.title = @"User Defaults";
+            break;
+        case SZDebugFunc_KeyChain:
+            self.title = @"Key Chain";
+            break;
+            
+        default:
+            break;
+    }
+}
+
+
+
+@end
+
+
+
+
+
+
+
+
 
 
 
@@ -213,6 +320,19 @@
     _label_detail.frame = CGRectMake(sw - 100.0, sh / 2.0 - 10.0, 100, 20);
     
 }
+
+
+- (void)config:(SZDebugFunc *)model environment:(SZEnvironment *)env
+{
+    _label_title.text = model.title;
+    
+    if (SZDebugFunc_Environment == model.type) {
+        _label_detail.text = env.title;
+    }else {
+        _label_detail.text = nil;
+    }
+}
+
 
 - (UILabel *)label_title
 {
@@ -289,6 +409,7 @@
 }
 
 @end
+
 
 
 

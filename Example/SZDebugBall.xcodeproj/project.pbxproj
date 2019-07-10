@@ -27,6 +27,11 @@
 		BE75610622A4B1C700D0A856 /* SZDebugVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7560FE22A4B1C700D0A856 /* SZDebugVC.m */; };
 		BE75610B22A4B26D00D0A856 /* SZViewHierarchyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BE75610922A4B26D00D0A856 /* SZViewHierarchyVC.m */; };
 		BE75610C22A4B26D00D0A856 /* SZLocalFilesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BE75610A22A4B26D00D0A856 /* SZLocalFilesVC.m */; };
+		BE80685922D6285D003041FD /* SZUserDefaultsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BE80685822D6285D003041FD /* SZUserDefaultsVC.m */; };
+		BE80685C22D62C5F003041FD /* SZKeyChainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BE80685B22D62C5F003041FD /* SZKeyChainVC.m */; };
+		BE80A87422D5F06F00209851 /* ZSFilesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE80A87222D5F06F00209851 /* ZSFilesManager.m */; };
+		BE80A87722D5F16500209851 /* ZSLocalFileSearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = BE80A87522D5F16500209851 /* ZSLocalFileSearcher.m */; };
+		BE80A87A22D5F17B00209851 /* ZSLocalFile.m in Sources */ = {isa = PBXBuildFile; fileRef = BE80A87822D5F17B00209851 /* ZSLocalFile.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +77,16 @@
 		BE75610822A4B26D00D0A856 /* SZLocalFilesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZLocalFilesVC.h; sourceTree = "<group>"; };
 		BE75610922A4B26D00D0A856 /* SZViewHierarchyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZViewHierarchyVC.m; sourceTree = "<group>"; };
 		BE75610A22A4B26D00D0A856 /* SZLocalFilesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZLocalFilesVC.m; sourceTree = "<group>"; };
+		BE80685722D6285D003041FD /* SZUserDefaultsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SZUserDefaultsVC.h; sourceTree = "<group>"; };
+		BE80685822D6285D003041FD /* SZUserDefaultsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SZUserDefaultsVC.m; sourceTree = "<group>"; };
+		BE80685A22D62C5F003041FD /* SZKeyChainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SZKeyChainVC.h; sourceTree = "<group>"; };
+		BE80685B22D62C5F003041FD /* SZKeyChainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SZKeyChainVC.m; sourceTree = "<group>"; };
+		BE80A87222D5F06F00209851 /* ZSFilesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSFilesManager.m; sourceTree = "<group>"; };
+		BE80A87322D5F06F00209851 /* ZSFilesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSFilesManager.h; sourceTree = "<group>"; };
+		BE80A87522D5F16500209851 /* ZSLocalFileSearcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSLocalFileSearcher.m; sourceTree = "<group>"; };
+		BE80A87622D5F16500209851 /* ZSLocalFileSearcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSLocalFileSearcher.h; sourceTree = "<group>"; };
+		BE80A87822D5F17B00209851 /* ZSLocalFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSLocalFile.m; sourceTree = "<group>"; };
+		BE80A87922D5F17B00209851 /* ZSLocalFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSLocalFile.h; sourceTree = "<group>"; };
 		CE1B10625CAEEDD301B2C1AB /* Pods-SZDebugBall_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SZDebugBall_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SZDebugBall_Example/Pods-SZDebugBall_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -179,8 +194,18 @@
 				BE7560FB22A4B1C700D0A856 /* UITextView+Placeholder.m */,
 				BE75610822A4B26D00D0A856 /* SZLocalFilesVC.h */,
 				BE75610A22A4B26D00D0A856 /* SZLocalFilesVC.m */,
+				BE80A87922D5F17B00209851 /* ZSLocalFile.h */,
+				BE80A87822D5F17B00209851 /* ZSLocalFile.m */,
+				BE80A87322D5F06F00209851 /* ZSFilesManager.h */,
+				BE80A87222D5F06F00209851 /* ZSFilesManager.m */,
+				BE80A87622D5F16500209851 /* ZSLocalFileSearcher.h */,
+				BE80A87522D5F16500209851 /* ZSLocalFileSearcher.m */,
 				BE75610722A4B26D00D0A856 /* SZViewHierarchyVC.h */,
 				BE75610922A4B26D00D0A856 /* SZViewHierarchyVC.m */,
+				BE80685722D6285D003041FD /* SZUserDefaultsVC.h */,
+				BE80685822D6285D003041FD /* SZUserDefaultsVC.m */,
+				BE80685A22D62C5F003041FD /* SZKeyChainVC.h */,
+				BE80685B22D62C5F003041FD /* SZKeyChainVC.m */,
 			);
 			name = Classes;
 			path = ../../SZDebugBall/Classes;
@@ -297,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE75610222A4B1C700D0A856 /* UIDevice+Debugging.m in Sources */,
+				BE80A87A22D5F17B00209851 /* ZSLocalFile.m in Sources */,
 				6003F59E195388D20070C39A /* SZAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* SZViewController.m in Sources */,
 				BE75610C22A4B26D00D0A856 /* SZLocalFilesVC.m in Sources */,
@@ -305,9 +331,13 @@
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				BE75610322A4B1C700D0A856 /* SZDebugBall.m in Sources */,
 				BE75610122A4B1C700D0A856 /* SZNewEnvironmentVC.m in Sources */,
+				BE80685922D6285D003041FD /* SZUserDefaultsVC.m in Sources */,
 				BE75610622A4B1C700D0A856 /* SZDebugVC.m in Sources */,
 				BE75610022A4B1C700D0A856 /* SZEnvironmentVC.m in Sources */,
+				BE80685C22D62C5F003041FD /* SZKeyChainVC.m in Sources */,
+				BE80A87422D5F06F00209851 /* ZSFilesManager.m in Sources */,
 				BE75610422A4B1C700D0A856 /* UITextView+Placeholder.m in Sources */,
+				BE80A87722D5F16500209851 /* ZSLocalFileSearcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

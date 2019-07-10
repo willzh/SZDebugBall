@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SZDebugBall'
-  s.version          = '1.0.6'
-  s.summary          = 'App 开发，测试帮助。内环境切换.'
+  s.version          = '1.0.8'
+  s.summary          = 'App 开发，测试帮助。'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -19,8 +19,10 @@ Pod::Spec.new do |s|
 
   s.description      = <<-DESC
   1. App 内环境切换.
-  2.查看 App 本地文件(暂无)
-  3.查看页面层级(暂无)
+  2. 查看 App 本地文件(beta)
+  3. 查看页面层级(beta)
+  4. 查看 UserDefaults(beta)
+  5. 查看 KeyChain (暂无)
                        DESC
 
   s.homepage         = 'https://github.com/willzh/SZDebugBall'

@@ -222,23 +222,15 @@ static inline CGFloat zs_screenWidth() {
 {
     NSLog(@"点击事件");
     NSLog(@"keyWindow:%@", [UIApplication sharedApplication].keyWindow);
-//    [self makeKeyAndVisible];
-//    NSLog(@"keyWindow:%@", [UIApplication sharedApplication].keyWindow);
-//    self.frame = [UIScreen mainScreen].bounds;
-//    self.bounds = UIScreen.mainScreen.bounds;
-//    self.backgroundColor = [UIColor redColor];
-//    [UIView animateWithDuration:0.3 animations:^{
-////        self.layer.cornerRadius = 0.0;
-//    } completion:^(BOOL finished) {
-//        SZDebugVC *vc = [[SZDebugVC alloc] init];
-//        [(UINavigationController *)self.rootViewController pushViewController:vc animated:NO];
-//    }];
-//    SZDebugVC *vc = [[SZDebugVC alloc] init];
-//    [(UINavigationController *)self.rootViewController pushViewController:vc animated:NO];
     
     [SZDebugBall hidden];
+    
     SZDebugVC *vc = [[SZDebugVC alloc] init];
-    [[SZDebugBall currentViewController].navigationController pushViewController:vc animated:YES];
+    UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:vc];
+    [[SZDebugBall currentViewController] presentViewController:navCon animated:YES completion:nil];
+    
+    //[[SZDebugBall currentViewController].navigationController pushViewController:vc animated:YES];
+    
 }
 
 

@@ -7,10 +7,34 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SZEnvironmentManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSUInteger, SZDebugFuncType)
+{
+    SZDebugFunc_Environment,    //!< 环境
+    SZDebugFunc_LocalFiles,     //!< 本地文件
+    SZDebugFunc_ViewHierarchy,  //!< 界面层级
+    SZDebugFunc_UserDefaults,   //!< 查看 UserDefaults
+    SZDebugFunc_KeyChain,       //!< 查看 keychain
+    
+};
+
+
 @interface SZDebugVC : UIViewController
+
+
+@end
+
+
+
+@interface SZDebugFunc : NSObject
+
+@property (nonatomic, assign) SZDebugFuncType type; //!< 类型
+@property (nonatomic, copy) NSString *title; //!< 标题
+
++ (instancetype)funcWithType:(SZDebugFuncType)type;
 
 @end
 
@@ -20,6 +44,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UILabel *label_title;
 @property (nonatomic, strong) UILabel *label_detail;
 
+- (void)config:(SZDebugFunc *)model environment:(SZEnvironment *)env;
+
 @end
 
 
@@ -28,5 +54,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UILabel *label_title;
 
 @end
+
+
+
 
 NS_ASSUME_NONNULL_END
