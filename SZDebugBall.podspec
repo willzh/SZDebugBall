@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SZDebugBall'
-  s.version          = '1.0.8'
+  s.version          = '1.0.9'
   s.summary          = 'App 开发，测试帮助。'
 
 # This description is used to generate tags and improve search results.

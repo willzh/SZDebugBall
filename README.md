@@ -11,6 +11,10 @@
 - [x] 代码切换环境
 - [x] 新增环境
 - [x] 删除环境
+2. 查看 App 本地文件(beta)
+3. 查看页面层级(beta)
+4. 查看 UserDefaults(beta)
+
 
 ## Example
 ``` 
