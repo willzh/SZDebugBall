@@ -35,6 +35,14 @@
 @implementation SZDebugVC
 
 
+#pragma mark - dealloc
+- (void)dealloc
+{
+    
+    [SZDebugBall show];
+}
+
+
 #pragma mark - viewDidLoad
 - (void)viewDidLoad
 {

@@ -16,4 +16,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+
+
+
+@interface UITextView (SZExt)
+
+@property (nonatomic, strong) NSString *sz_placeholder;
+@property (nonatomic, strong) UILabel *sz_placeholderLabel;
+
+@end
+
 NS_ASSUME_NONNULL_END

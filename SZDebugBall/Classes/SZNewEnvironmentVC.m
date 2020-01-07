@@ -7,8 +7,8 @@
 //
 
 #import "SZNewEnvironmentVC.h"
-#import "UITextView+Placeholder.h"
 #import "SZEnvironmentManager.h"
+#import <objc/message.h>
 
 @interface SZNewEnvironmentVC ()
 {
@@ -134,7 +134,7 @@
         _tv_address.font = [UIFont systemFontOfSize:14];
         _tv_address.textColor = [UIColor blackColor];
         _tv_address.keyboardType = UIKeyboardTypeURL;
-        _tv_address.ddPlaceholder = @"URL Address";
+        _tv_address.sz_placeholder = @"Address";
         
     }
     return _tv_address;
@@ -143,5 +143,47 @@
 
 
 
+
+@end
+
+
+
+const void *sz_placeholderLabelKey = "sz_placeholderLabel";
+
+@implementation UITextView (SZExt)
+
+- (void)setSz_placeholder:(NSString *)sz_placeholder {
+    self.sz_placeholderLabel.text = sz_placeholder;
+}
+
+- (NSString *)sz_placeholder {
+    return self.sz_placeholderLabel.text;
+}
+
+- (void)setSz_placeholderLabel:(UILabel *)sz_placeholderLabel {
+    objc_setAssociatedObject(self, sz_placeholderLabelKey, sz_placeholderLabel, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (UILabel *)sz_placeholderLabel
+{
+    UILabel *label = objc_getAssociatedObject(self, sz_placeholderLabelKey);
+    if (!label)
+    {
+        if (self.font == nil) {
+            self.font = [UIFont systemFontOfSize:14];
+        }
+        label = [[UILabel alloc] initWithFrame:self.bounds];
+        label.numberOfLines = 0;
+        label.font = self.font;
+        label.textColor = [UIColor lightGrayColor];
+        [label sizeToFit];
+        [self setValue:label forKey:@"_placeholderLabel"];
+        [self addSubview:label];
+        [self sendSubviewToBack:label];
+        
+        objc_setAssociatedObject(self, sz_placeholderLabelKey, label, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    return label;
+}
 
 @end

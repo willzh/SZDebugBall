@@ -22,7 +22,6 @@
 		BE75610122A4B1C700D0A856 /* SZNewEnvironmentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7560F522A4B1C600D0A856 /* SZNewEnvironmentVC.m */; };
 		BE75610222A4B1C700D0A856 /* UIDevice+Debugging.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7560F622A4B1C600D0A856 /* UIDevice+Debugging.m */; };
 		BE75610322A4B1C700D0A856 /* SZDebugBall.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7560F922A4B1C700D0A856 /* SZDebugBall.m */; };
-		BE75610422A4B1C700D0A856 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7560FB22A4B1C700D0A856 /* UITextView+Placeholder.m */; };
 		BE75610522A4B1C700D0A856 /* SZEnvironmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7560FD22A4B1C700D0A856 /* SZEnvironmentManager.m */; };
 		BE75610622A4B1C700D0A856 /* SZDebugVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7560FE22A4B1C700D0A856 /* SZDebugVC.m */; };
 		BE75610B22A4B26D00D0A856 /* SZViewHierarchyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BE75610922A4B26D00D0A856 /* SZViewHierarchyVC.m */; };
@@ -67,8 +66,6 @@
 		BE7560F722A4B1C600D0A856 /* SZDebugBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZDebugBall.h; sourceTree = "<group>"; };
 		BE7560F822A4B1C700D0A856 /* UIDevice+Debugging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Debugging.h"; sourceTree = "<group>"; };
 		BE7560F922A4B1C700D0A856 /* SZDebugBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZDebugBall.m; sourceTree = "<group>"; };
-		BE7560FA22A4B1C700D0A856 /* UITextView+Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
-		BE7560FB22A4B1C700D0A856 /* UITextView+Placeholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Placeholder.m"; sourceTree = "<group>"; };
 		BE7560FC22A4B1C700D0A856 /* SZDebugVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZDebugVC.h; sourceTree = "<group>"; };
 		BE7560FD22A4B1C700D0A856 /* SZEnvironmentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZEnvironmentManager.m; sourceTree = "<group>"; };
 		BE7560FE22A4B1C700D0A856 /* SZDebugVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZDebugVC.m; sourceTree = "<group>"; };
@@ -190,8 +187,6 @@
 				BE7560F522A4B1C600D0A856 /* SZNewEnvironmentVC.m */,
 				BE7560F822A4B1C700D0A856 /* UIDevice+Debugging.h */,
 				BE7560F622A4B1C600D0A856 /* UIDevice+Debugging.m */,
-				BE7560FA22A4B1C700D0A856 /* UITextView+Placeholder.h */,
-				BE7560FB22A4B1C700D0A856 /* UITextView+Placeholder.m */,
 				BE75610822A4B26D00D0A856 /* SZLocalFilesVC.h */,
 				BE75610A22A4B26D00D0A856 /* SZLocalFilesVC.m */,
 				BE80A87922D5F17B00209851 /* ZSLocalFile.h */,
@@ -336,7 +331,6 @@
 				BE75610022A4B1C700D0A856 /* SZEnvironmentVC.m in Sources */,
 				BE80685C22D62C5F003041FD /* SZKeyChainVC.m in Sources */,
 				BE80A87422D5F06F00209851 /* ZSFilesManager.m in Sources */,
-				BE75610422A4B1C700D0A856 /* UITextView+Placeholder.m in Sources */,
 				BE80A87722D5F16500209851 /* ZSLocalFileSearcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
